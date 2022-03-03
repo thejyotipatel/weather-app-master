@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Sidebar from './components/Sidebar'
+import MainPage from './components/MainPage'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=' text-gray-100  max-w-[2100px]     bg-main-color-2 grid mx-auto '>
+      <div
+        // className='grid sm:grid-cols-2 grid-cols-1   w-[100%] mx-auto '
+        // className='grid gr '
+
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '20% auto',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Sidebar />
+        <MainPage />
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
