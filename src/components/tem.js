@@ -6,7 +6,7 @@ const Temp = ({ temps }) => {
       <span className='material-icons   text-[10px] mb-5 font-[800] '>
         panorama_fish_eye
       </span>
-      <p className='  text-[24px]  font-semibold  '>{temps}</p>
+      <span className='  text-[24px]  font-semibold  '>{temps}</span>
     </p>
   )
 }

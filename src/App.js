@@ -9,8 +9,10 @@ function App() {
 
         style={{
           display: 'grid',
-          gridTemplateColumns: '20% auto',
-          justifyContent: 'space-between',
+          gridTemplateColumns: '25% auto',
+          justifyContent: 'stretch',
+          height: '100%',
+          // paddingBottom: '20px',
         }}
       >
         <Sidebar />
