@@ -1,20 +1,12 @@
 import Sidebar from './components/Sidebar'
 import MainPage from './components/MainPage'
+import Loading from './components/loading'
+import { useAppContext } from './components/context'
 function App() {
+  const { sidebar, loading } = useAppContext()
   return (
-    <div className=' text-gray-100  max-w-[2100px]     bg-main-color-2 grid mx-auto '>
-      <div
-        // className='grid sm:grid-cols-2 grid-cols-1   w-[100%] mx-auto '
-        // className='grid gr '
-
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '25% auto',
-          justifyContent: 'stretch',
-          height: '100%',
-          // paddingBottom: '20px',
-        }}
-      >
+    <div className=' text-gray-100       bg-main-color-2   mx-auto  w-full h-full '>
+      <div className=' flex flex-col md:flex-row    justify-between'>
         <Sidebar />
         <MainPage />
       </div>
