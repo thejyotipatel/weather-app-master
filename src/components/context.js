@@ -95,7 +95,7 @@ const AppProvider = ({ children }) => {
 
   //  se weather by city name
   const weatherByCityName = () => {
-    const cityUrl = `/api/location/search/?query=${searchCity}`
+    const cityUrl = `${BaseUrl}/api/location/search/?query=${searchCity}`
 
     getWeatherLocationData(cityUrl)
   }
