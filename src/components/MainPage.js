@@ -30,36 +30,36 @@ const MainPage = () => {
       {loading && (
         <div className='md:flex flex flex-wrap  mt-[80px] justify-center md:flex-wrap md:justify-start  items-start mx-auto  md:items-center'>
           <WeatherBox
-          // dates={'Tomorrow'}
-          // img={`/static/img/weather/png/${weatherData.consolidated_weather[1].weather_state_abbr}.png`}
-          // min={Math.floor(weatherData.consolidated_weather[1].max_temp)}
-          // max={Math.floor(weatherData.consolidated_weather[1].min_temp)}
+            dates={'Tomorrow'}
+            img={`/static/img/weather/png/${weatherData.consolidated_weather[1].weather_state_abbr}.png`}
+            min={Math.floor(weatherData.consolidated_weather[1].max_temp)}
+            max={Math.floor(weatherData.consolidated_weather[1].min_temp)}
           />
           {/* dates, img, min, max */}
           <WeatherBox
-          // // 2022-03-08
-          // dates={setDate(2, 2)}
-          // img={`/static/img/weather/png/${weatherData.consolidated_weather[2].weather_state_abbr}.png`}
-          // min={Math.floor(weatherData.consolidated_weather[2].max_temp)}
-          // max={Math.floor(weatherData.consolidated_weather[2].min_temp)}
+            // 2022-03-08
+            dates={setDate(2, 2)}
+            img={`/static/img/weather/png/${weatherData.consolidated_weather[2].weather_state_abbr}.png`}
+            min={Math.floor(weatherData.consolidated_weather[2].max_temp)}
+            max={Math.floor(weatherData.consolidated_weather[2].min_temp)}
           />
           <WeatherBox
-          // dates={setDate(3, 3)}
-          // img={`/static/img/weather/png/${weatherData.consolidated_weather[3].weather_state_abbr}.png`}
-          // min={Math.floor(weatherData.consolidated_weather[3].max_temp)}
-          // max={Math.floor(weatherData.consolidated_weather[3].min_temp)}
+            dates={setDate(3, 3)}
+            img={`/static/img/weather/png/${weatherData.consolidated_weather[3].weather_state_abbr}.png`}
+            min={Math.floor(weatherData.consolidated_weather[3].max_temp)}
+            max={Math.floor(weatherData.consolidated_weather[3].min_temp)}
           />
           <WeatherBox
-          // dates={setDate(4, 4)}
-          // img={`/static/img/weather/png/${weatherData.consolidated_weather[4].weather_state_abbr}.png`}
-          // min={Math.floor(weatherData.consolidated_weather[4].max_temp)}
-          // max={Math.floor(weatherData.consolidated_weather[4].min_temp)}
+            dates={setDate(4, 4)}
+            img={`/static/img/weather/png/${weatherData.consolidated_weather[4].weather_state_abbr}.png`}
+            min={Math.floor(weatherData.consolidated_weather[4].max_temp)}
+            max={Math.floor(weatherData.consolidated_weather[4].min_temp)}
           />
           <WeatherBox
-          // dates={setDate(5, 5)}
-          // img={`/static/img/weather/png/${weatherData.consolidated_weather[5].weather_state_abbr}.png`}
-          // min={Math.floor(weatherData.consolidated_weather[5].max_temp)}
-          // max={Math.floor(weatherData.consolidated_weather[5].min_temp)}
+            dates={setDate(5, 5)}
+            img={`/static/img/weather/png/${weatherData.consolidated_weather[5].weather_state_abbr}.png`}
+            min={Math.floor(weatherData.consolidated_weather[5].max_temp)}
+            max={Math.floor(weatherData.consolidated_weather[5].min_temp)}
           />
         </div>
       )}
@@ -72,7 +72,7 @@ const MainPage = () => {
           <p className='text-center text-[18px] font-medium'>Wind status</p>
           <h1 className='text-[64px]  flex justify-center items-center '>
             {/* 7 */}
-            {/* {Math.floor(weatherData.consolidated_weather[1].wind_speed)} */}
+            {Math.floor(weatherData.consolidated_weather[1].wind_speed)}
             <span className='text-[24px]  '> mph</span>
           </h1>
           <p className='  text-[24px] text-center'>
@@ -80,7 +80,7 @@ const MainPage = () => {
               navigation
             </span>
             {'   '}
-            {/* {weatherData.consolidated_weather[0].wind_direction_compass} */}
+            {weatherData.consolidated_weather[0].wind_direction_compass}
           </p>
         </div>
 
@@ -88,7 +88,7 @@ const MainPage = () => {
           <p className='text-center text-[18px] font-medium'>Humidity</p>
           <h1 className='text-[64px]  flex justify-center items-center'>
             {/* 84 */}
-            {/* {weatherData.consolidated_weather[0].humidity} */}
+            {weatherData.consolidated_weather[0].humidity}
             <span className='text-[24px]'> %</span>
           </h1>
           <p className='flex justify-between w-full font-semibold text-[12px] text-gray-400'>
@@ -102,7 +102,7 @@ const MainPage = () => {
             min='0'
             max='100'
             // value='80'
-            // value={weatherData.consolidated_weather[0].humidity}
+            value={weatherData.consolidated_weather[0].humidity}
             className='   w-full  bg-yellow-500 rounded-md '
           />
           <p className='text-right text-gray-400 font-semibold text-[16px]  '>
@@ -114,7 +114,7 @@ const MainPage = () => {
           <p className='text-center text-[18px] font-medium'>Visibility</p>
           <h1 className='text-[64px]  flex justify-center items-center'>
             {/* 6,4 */}
-            {/* {Math.floor(weatherData.consolidated_weather[0].visibility)} */}
+            {Math.floor(weatherData.consolidated_weather[0].visibility)}
             <span className='text-[24px]'> miles</span>
           </h1>
         </div>
@@ -123,7 +123,7 @@ const MainPage = () => {
           <p className='text-center text-[18px] font-medium'>Air Pressure</p>
           <h1 className='text-[64px]  flex justify-center items-center'>
             {/* 998 */}
-            {/* {weatherData.consolidated_weather[0].air_pressure} */}
+            {weatherData.consolidated_weather[0].air_pressure}
             <span className='text-[24px]'> mb</span>
           </h1>
         </div>
