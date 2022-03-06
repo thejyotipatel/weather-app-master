@@ -33,7 +33,9 @@ const AppProvider = ({ children }) => {
 
   // fetch data from api
   const getWeatherLocationData = async (url) => {
-    fetch(url)
+    setLoading(true)
+    const mainurl = url
+    fetch(mainurl)
       .then(function (res) {
         if (res.ok) {
           return res.json()
@@ -43,7 +45,7 @@ const AppProvider = ({ children }) => {
       })
       .then(function (data) {
         location = data
-
+        console.log(location[0].woeid)
         return fetch(`/api/location/${location[0].woeid}/`)
       })
       .then(function (res) {
@@ -55,6 +57,7 @@ const AppProvider = ({ children }) => {
       })
       .then(function (wData) {
         setWearherData(wData)
+        setLoading(false)
       })
       .catch(function (error) {
         console.log(error)
@@ -111,11 +114,9 @@ const AppProvider = ({ children }) => {
         setDate,
         weatherData,
         location,
-        getCurrentLocation,
         setWearherData,
         searchCity,
         setSearchCity,
-        getCurrentLocation,
         weatherByCityName,
         loading,
       }}
