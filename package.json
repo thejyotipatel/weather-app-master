@@ -1,7 +1,6 @@
 {
   "name": "weather-app",
   "homepage": "https://thejyotipatel.github.io/weather-app-master",
-  "proxy": "https://www.metaweather.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

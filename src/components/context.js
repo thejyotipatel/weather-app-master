@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 
 const AppContext = React.createContext()
 let lat, log, location
-
+const BaseUrl = 'https://www.metaweather.com'
 const AppProvider = ({ children }) => {
   const [weatherData, setWearherData] = useState([])
   const [sidebar, setSidebar] = useState(false)
@@ -22,7 +22,7 @@ const AppProvider = ({ children }) => {
       navigator.geolocation.getCurrentPosition((pos) => {
         lat = pos.coords.latitude
         log = pos.coords.longitude
-        const curLoc = `/api/location/search/?lattlong=${lat},${log}`
+        const curLoc = `${BaseUrl}/api/location/search/?lattlong=${lat},${log}`
 
         getWeatherLocationData(lat, log, curLoc)
       })
@@ -46,7 +46,7 @@ const AppProvider = ({ children }) => {
       .then(function (data) {
         location = data
         console.log(location[0].woeid)
-        return fetch(`/api/location/${location[0].woeid}/`)
+        return fetch(`${BaseUrl}/api/location/${location[0].woeid}/`)
       })
       .then(function (res) {
         if (res.ok) {

@@ -42,7 +42,7 @@ const Sidebar = () => {
           style={{ opacity: '10%' }}
           className='bg-no-repeat mt-[15px]    max-h-[400px]  '
         />
-        {!loading && (
+        {typeof weatherData.consolidated_weather !== 'undefined' ? (
           <>
             <img
               src={`/static/img/weather/png/${weatherData.consolidated_weather[0].weather_state_abbr}.png`}
@@ -74,6 +74,8 @@ const Sidebar = () => {
               {weatherData.title}
             </p>
           </>
+        ) : (
+          ''
         )}
       </div>
     </>

@@ -27,7 +27,7 @@ const MainPage = () => {
           </p>
         </button>
       </div>
-      {!loading && (
+      {typeof weatherData.consolidated_weather !== 'undefined' ? (
         <div className='md:flex flex flex-wrap  mt-[80px] justify-center md:flex-wrap md:justify-start  items-start mx-auto  md:items-center'>
           <WeatherBox
             dates={'Tomorrow'}
@@ -62,12 +62,14 @@ const MainPage = () => {
             max={Math.floor(weatherData.consolidated_weather[5].min_temp)}
           />
         </div>
+      ) : (
+        ''
       )}
       {/* hightlights */}
       <h1 className='text-left text-[24px] text-gray-100 mt-[20px] mb-2 ml-4 capitalize'>
         Today’s Hightlights
       </h1>
-      {!loading && (
+      {typeof weatherData.consolidated_weather !== 'undefined' ? (
         <div className='grid md:grid-cols-2 grid-cols-1   justify-between mb-[100px]'>
           <div className='  bg-[#1E213A] max-w-[500px]    m-4  px-2 py-2  h-[200px]'>
             <p className='text-center text-[18px] font-medium'>Wind status</p>
@@ -129,6 +131,8 @@ const MainPage = () => {
             </h1>
           </div>
         </div>
+      ) : (
+        ''
       )}
     </div>
   )
