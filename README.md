@@ -2,10 +2,9 @@
 
 <h1 align="center">Weather app master</h1>
 
-
 <div align="center">
   <h3>
-  <a href="https://{your-demo-link.your-domain}">  
+  <a href="https://thejyotipatel.github.io/weather-app-master/">  
       Demo 
     </a> 
   </h3>
