@@ -29,7 +29,11 @@ const AppProvider = ({ children }) => {
         getweatherData(curLoc)
       })
     } else {
-      console.log('Geolocation is not suppoeted by this browser.')
+      return (
+        <div className='mx-auto text-gray-50 flex justify-center mt-[10rem]'>
+          <h1 className=''>Geolocation is not suppoeted by this browser.</h1>
+        </div>
+      )
     }
   }
 
