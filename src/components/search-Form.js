@@ -16,15 +16,23 @@ const SearchForm = () => {
     }
   }
   return (
-    <form className='' onSubmit={submithandler}>
+    <form
+      onSubmit={submithandler}
+      className='bg-gray-50 m-4 flex items-center justify-center rounded-md'
+    >
       <input
         type='text'
         name='query'
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
         placeholder='Search for places'
-        className=' m-4 py-2 px-2 border-x-0 text-gray-50 font-medium text-[16px] bg-[#6E707A]    outline-none rounded-sm'
+        className='  py-2 px-2 border-x-0 text-main-color font-medium text-[16px]  bg-gray-50   outline-none rounded-sm'
       />
+      <button className=' bg-gray-50 pt-1 '>
+        <span className='material-icons font-normal text-main-color/40 text-[30px] '>
+          search
+        </span>
+      </button>
     </form>
   )
 }

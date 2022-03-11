@@ -54,7 +54,7 @@ const AppProvider = ({ children }) => {
       setLoading(false)
     }
   }
-  const setDate = (data, dayData) => {
+  const setDate = (data) => {
     let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let months = [
       'Jan',
@@ -71,24 +71,10 @@ const AppProvider = ({ children }) => {
       'Dec',
     ]
 
-    let day = days[dayData]
-    let date = parseInt(data.substr(8, 2))
-    let text = data.substr(5, 2)
-
-    let month =
-      months[
-        text.startsWith('0')
-          ? (parseInt(data.substr(6, 1)) === 0
-              ? 1
-              : parseInt(data.substr(6, 1))) - 1
-          : (parseInt(data.substr(5, 2)) === 0
-              ? 1
-              : parseInt(data.substr(5, 2))) - 1
-      ]
-
-    let Times = `${day}, ${date} ${month}`
-
-    return Times
+    data = data.replace('/', '-')
+    data = data.replace('/', '-')
+    let d = new Date(data)
+    return `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]}`
   }
 
   //  se weather by city name

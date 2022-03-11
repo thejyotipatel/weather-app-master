@@ -7,26 +7,9 @@ const MainPage = () => {
 
   return (
     <div className='   mx-auto'>
-      <div className='right-[120px] md:right-4 absolute md:grid grid-cols-2 hidden '>
-        <button className=' bg-[#fff] outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center  m-4'>
-          <p className='  text-[#000]  flex justify-center items-end'>
-            <span className='material-icons   text-[10px] mb-5 font-[900] '>
-              panorama_fish_eye
-            </span>
-            <span className='  text-[24px]  font-semibold  '>C</span>
-          </p>
-        </button>
-        <button className=' bg-[#585676] outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center  m-4'>
-          <p className='  text-[#fff]  flex justify-center items-end'>
-            <span className='material-icons   text-[10px] mb-5 font-[800] '>
-              panorama_fish_eye
-            </span>
-            <span className='  text-[24px]  font-semibold  '>F</span>
-          </p>
-        </button>
-      </div>
+      {/* <TempAndFen /> */}
       {weatherData.consolidated_weather !== undefined ? (
-        <div className='md:flex flex flex-wrap  mt-[80px] justify-center md:flex-wrap md:justify-start  items-start mx-auto  md:items-center'>
+        <div className='md:flex flex flex-wrap   my-4 justify-center md:flex-wrap md:space-evenly  items-start mx-auto  md:items-center'>
           <WeatherBox
             dates={'Tomorrow'}
             img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[1].weather_state_abbr}.png`}
@@ -36,37 +19,25 @@ const MainPage = () => {
           {/* dates, img, min, max */}
           <WeatherBox
             // 2022-03-08
-            dates={setDate(
-              weatherData.consolidated_weather[2].applicable_date,
-              2
-            )}
+            dates={setDate(weatherData.consolidated_weather[2].applicable_date)}
             img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[2].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[2].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[2].min_temp)}
           />
           <WeatherBox
-            dates={setDate(
-              weatherData.consolidated_weather[3].applicable_date,
-              3
-            )}
+            dates={setDate(weatherData.consolidated_weather[3].applicable_date)}
             img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[3].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[3].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[3].min_temp)}
           />
           <WeatherBox
-            dates={setDate(
-              weatherData.consolidated_weather[4].applicable_date,
-              4
-            )}
+            dates={setDate(weatherData.consolidated_weather[4].applicable_date)}
             img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[4].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[4].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[4].min_temp)}
           />
           <WeatherBox
-            dates={setDate(
-              weatherData.consolidated_weather[5].applicable_date,
-              5
-            )}
+            dates={setDate(weatherData.consolidated_weather[5].applicable_date)}
             img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[5].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[5].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[5].min_temp)}
@@ -76,12 +47,12 @@ const MainPage = () => {
         ''
       )}
       {/* hightlights */}
-      <h1 className='text-left text-[24px] text-gray-100 mt-[20px] mb-2 ml-4 capitalize'>
+      <h1 className='text-left text-[24px] text-gray-50     ml-4 capitalize'>
         Today’s Hightlights
       </h1>
       {typeof weatherData.consolidated_weather !== 'undefined' ? (
-        <div className='grid md:grid-cols-2 grid-cols-1   justify-between mb-[100px]'>
-          <div className='  bg-[#1E213A] max-w-[500px]    m-4  px-2 py-2  h-[200px]'>
+        <div className='grid md:grid-cols-2 grid-cols-1   justify-between  '>
+          <div className='  bg-main-color max-w-[500px]    m-4  px-2 py-2  h-[200px]  rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Wind status</p>
             <h1 className='text-[64px]  flex justify-center items-center '>
               {/* 7 */}
@@ -97,7 +68,7 @@ const MainPage = () => {
             </p>
           </div>
 
-          <div className='  bg-[#1E213A] max-w-[500px]  m-4  px-2 py-2   h-[200px]'>
+          <div className='  bg-main-color max-w-[500px]  m-4  px-2 py-2   h-[200px]  rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Humidity</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 84 */}
@@ -117,14 +88,14 @@ const MainPage = () => {
               readOnly
               // value='80'
               value={weatherData.consolidated_weather[0].humidity}
-              className='   w-full  bg-yellow-500 rounded-md '
+              className='   w-full   rounded-md '
             />
             <p className='text-right text-gray-400 font-semibold text-[16px]  '>
               %
             </p>
           </div>
 
-          <div className='  bg-[#1E213A] max-w-[500px]   h-fit m-4  px-2 py-2  '>
+          <div className='  bg-main-color max-w-[500px]   h-fit m-4  px-2 py-2   rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Visibility</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 6,4 */}
@@ -133,7 +104,7 @@ const MainPage = () => {
             </h1>
           </div>
 
-          <div className='  bg-[#1E213A] max-w-[500px] h-fit m-4    py-2  '>
+          <div className='  bg-main-color max-w-[500px] h-fit m-4    py-2   rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Air Pressure</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 998 */}
