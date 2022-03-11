@@ -2,24 +2,8 @@ import img from '../images/Cloud-background.png'
 import SearchForm from './search-Form'
 import { useAppContext } from './context'
 import Loading from './loading'
-let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-let months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Ape',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nav',
-  'Dec',
-]
-
 const Sidebar = () => {
-  const { weatherData, setDate, loading } = useAppContext()
+  const { weatherData, setDate, loading, getCurrentLocation } = useAppContext()
 
   return (
     <>
@@ -30,7 +14,10 @@ const Sidebar = () => {
         <div className='m-2  mt-4 flex justify-between items-center  '>
           <SearchForm />
 
-          <button className=' bg-[#6E707A] outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center  '>
+          <button
+            className=' bg-[#6E707A] outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center  '
+            onClick={getCurrentLocation}
+          >
             <span className='material-icons text-gray-100 text-[30px] '>
               gps_fixed
             </span>
@@ -42,13 +29,13 @@ const Sidebar = () => {
           style={{ opacity: '10%' }}
           className='bg-no-repeat mt-[15px]    max-h-[400px]  '
         />
-        {typeof weatherData.consolidated_weather !== 'undefined' ? (
+        {weatherData.consolidated_weather !== undefined && (
           <>
             <img
-              src={`/static/img/weather/png/${weatherData.consolidated_weather[0].weather_state_abbr}.png`}
+              src={`https://www.metaweather.com/static/img/weather/png/${weatherData.consolidated_weather[0].weather_state_abbr}.png`}
               // src={Hail}
               alt='weather images'
-              className=' mx-auto -mt-[120px] w-[100px]  '
+              className=' mx-auto -mt-[180px] md:-mt-[130px] w-[100px]  '
             />
             <div className='grid place-content-center  '>
               <h1 className='text-[120px] text-[#E7E7EB] mt-4  font-meduim flex justify-center items-end'>
@@ -65,7 +52,11 @@ const Sidebar = () => {
               {/* sunny */}
             </h4>
             <p className='text-[#A09FB1] text-[18px] font-normal text-center my-5 mt-[10px] capitalize'>
-              Today . {setDate(0, 0)}
+              Today .{' '}
+              {setDate(
+                weatherData.consolidated_weather[0].applicable_date,
+                new Date().getDay()
+              )}
               {/* Today . Fri, 5 Jun */}
             </p>
             <p className='text-[#A09FB1] text-[18px] font-normal  my-5 flex justify-center items-end '>
@@ -74,8 +65,6 @@ const Sidebar = () => {
               {weatherData.title}
             </p>
           </>
-        ) : (
-          ''
         )}
       </div>
     </>

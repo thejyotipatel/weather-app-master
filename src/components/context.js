@@ -1,8 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
 
 const AppContext = React.createContext()
-let lat, log, location
-const BaseUrl = 'https://www.metaweather.com'
+const BaseUrl = `${
+  process.env.REACT_APP_PROXY_URL || ''
+}https://www.metaweather.com`
 const AppProvider = ({ children }) => {
   const [weatherData, setWearherData] = useState([])
   const [sidebar, setSidebar] = useState(false)
@@ -20,52 +22,39 @@ const AppProvider = ({ children }) => {
   const getCurrentLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
-        lat = pos.coords.latitude
-        log = pos.coords.longitude
-        const curLoc = `${BaseUrl}/api/location/search/?lattlong=${lat},${log}`
+        let lat = pos.coords.latitude
+        let log = pos.coords.longitude
+        const curLoc = `/api/location/search/?lattlong=${lat},${log}`
 
-        getWeatherLocationData(lat, log, curLoc)
+        getweatherData(curLoc)
       })
     } else {
       console.log('Geolocation is not suppoeted by this browser.')
     }
   }
 
-  // fetch data from api
-  const getWeatherLocationData = async (url) => {
-    setLoading(true)
-    const mainurl = url
-    fetch(mainurl)
-      .then(function (res) {
-        if (res.ok) {
-          return res.json()
-        } else {
-          return Promise.reject(res)
-        }
-      })
-      .then(function (data) {
-        location = data
-        console.log(location[0].woeid)
-        return fetch(`${BaseUrl}/api/location/${location[0].woeid}/`)
-      })
-      .then(function (res) {
-        if (res.ok) {
-          return res.json()
-        } else {
-          return Promise.reject(res)
-        }
-      })
-      .then(function (wData) {
-        setWearherData(wData)
-        setLoading(false)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+  // get weather data
+  const getweatherData = async (url) => {
+    try {
+      // git city id
+      const response = await axios.get(BaseUrl + url)
+      const location = await response.data[0].woeid
+      if (location === '') {
+        return
+      }
+      // git city weather data
+      const weaterDataResponse = await axios.get(
+        `${BaseUrl}/api/location/${location}/`
+      )
+      // console.log(weaterDataResponse.data)
+      setWearherData(weaterDataResponse.data)
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+      setLoading(false)
+    }
   }
-
-  // set Date, Day and Month
-  const setDate = (dayspan, datespan) => {
+  const setDate = (data, dayData) => {
     let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     let months = [
       'Jan',
@@ -81,12 +70,21 @@ const AppProvider = ({ children }) => {
       'Nav',
       'Dec',
     ]
-    //  Today . {days[new Date().getDay()]}, {new Date().getDate()}{' '}
-    //       {months[new Date().getMonth()]}
-    const d = new Date()
-    let day = days[d.getDay() + dayspan]
-    let date = d.getDate() + datespan
-    let month = months[d.getMonth()]
+
+    let day = days[dayData]
+    let date = parseInt(data.substr(8, 2))
+    let text = data.substr(5, 2)
+
+    let month =
+      months[
+        text.startsWith('0')
+          ? (parseInt(data.substr(6, 1)) === 0
+              ? 1
+              : parseInt(data.substr(6, 1))) - 1
+          : (parseInt(data.substr(5, 2)) === 0
+              ? 1
+              : parseInt(data.substr(5, 2))) - 1
+      ]
 
     let Times = `${day}, ${date} ${month}`
 
@@ -95,13 +93,11 @@ const AppProvider = ({ children }) => {
 
   //  se weather by city name
   const weatherByCityName = () => {
-    const cityUrl = `${BaseUrl}/api/location/search/?query=${searchCity}`
-
-    getWeatherLocationData(cityUrl)
+    const cityUrl = `/api/location/search/?query=${searchCity}`
+    getweatherData(cityUrl)
   }
 
-  // console.log(weatherData)
-  // get weather data of current location at stating of app
+  // get weather data of current location at stating of the app
   useEffect(() => {
     getCurrentLocation()
   }, [])
@@ -113,10 +109,10 @@ const AppProvider = ({ children }) => {
         closeSidebar,
         setDate,
         weatherData,
-        location,
         setWearherData,
         searchCity,
         setSearchCity,
+        getCurrentLocation,
         weatherByCityName,
         loading,
       }}

@@ -1,11 +1,9 @@
 import React from 'react'
-import Temp from './tem'
 import WeatherBox from './weather-box'
-import Loading from './loading'
 import { useAppContext } from './context'
-
+const IMG_URL = 'https://www.metaweather.com'
 const MainPage = () => {
-  const { weatherData, setDate, loading } = useAppContext()
+  const { weatherData, setDate } = useAppContext()
 
   return (
     <div className='   mx-auto'>
@@ -27,37 +25,49 @@ const MainPage = () => {
           </p>
         </button>
       </div>
-      {typeof weatherData.consolidated_weather !== 'undefined' ? (
+      {weatherData.consolidated_weather !== undefined ? (
         <div className='md:flex flex flex-wrap  mt-[80px] justify-center md:flex-wrap md:justify-start  items-start mx-auto  md:items-center'>
           <WeatherBox
             dates={'Tomorrow'}
-            img={`/static/img/weather/png/${weatherData.consolidated_weather[1].weather_state_abbr}.png`}
+            img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[1].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[1].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[1].min_temp)}
           />
           {/* dates, img, min, max */}
           <WeatherBox
             // 2022-03-08
-            dates={setDate(2, 2)}
-            img={`/static/img/weather/png/${weatherData.consolidated_weather[2].weather_state_abbr}.png`}
+            dates={setDate(
+              weatherData.consolidated_weather[2].applicable_date,
+              2
+            )}
+            img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[2].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[2].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[2].min_temp)}
           />
           <WeatherBox
-            dates={setDate(3, 3)}
-            img={`/static/img/weather/png/${weatherData.consolidated_weather[3].weather_state_abbr}.png`}
+            dates={setDate(
+              weatherData.consolidated_weather[3].applicable_date,
+              3
+            )}
+            img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[3].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[3].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[3].min_temp)}
           />
           <WeatherBox
-            dates={setDate(4, 4)}
-            img={`/static/img/weather/png/${weatherData.consolidated_weather[4].weather_state_abbr}.png`}
+            dates={setDate(
+              weatherData.consolidated_weather[4].applicable_date,
+              4
+            )}
+            img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[4].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[4].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[4].min_temp)}
           />
           <WeatherBox
-            dates={setDate(5, 5)}
-            img={`/static/img/weather/png/${weatherData.consolidated_weather[5].weather_state_abbr}.png`}
+            dates={setDate(
+              weatherData.consolidated_weather[5].applicable_date,
+              5
+            )}
+            img={`${IMG_URL}/static/img/weather/png/${weatherData.consolidated_weather[5].weather_state_abbr}.png`}
             min={Math.floor(weatherData.consolidated_weather[5].max_temp)}
             max={Math.floor(weatherData.consolidated_weather[5].min_temp)}
           />
@@ -104,6 +114,7 @@ const MainPage = () => {
               name='range'
               min='0'
               max='100'
+              readOnly
               // value='80'
               value={weatherData.consolidated_weather[0].humidity}
               className='   w-full  bg-yellow-500 rounded-md '
