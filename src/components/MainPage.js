@@ -51,8 +51,8 @@ const MainPage = () => {
         Today’s Hightlights
       </h1>
       {typeof weatherData.consolidated_weather !== 'undefined' ? (
-        <div className='grid md:grid-cols-2 grid-cols-1   justify-between  '>
-          <div className='  bg-main-color max-w-[500px]    m-4  px-2 py-2  h-[200px]  rounded-sm'>
+        <div className='grid md:grid-cols-2 grid-cols-1   justify-between mx-auto  '>
+          <div className='  bg-main-color max-w-full md:max-w-[500px]    m-4  px-2 py-2  h-[200px]  rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Wind status</p>
             <h1 className='text-[64px]  flex justify-center items-center '>
               {/* 7 */}
@@ -68,7 +68,7 @@ const MainPage = () => {
             </p>
           </div>
 
-          <div className='  bg-main-color max-w-[500px]  m-4  px-2 py-2   h-[200px]  rounded-sm'>
+          <div className='  bg-main-color max-w-full md:max-w-[500px]  m-4  px-2 py-2   h-[200px]  rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Humidity</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 84 */}
@@ -95,7 +95,7 @@ const MainPage = () => {
             </p>
           </div>
 
-          <div className='  bg-main-color max-w-[500px]   h-fit m-4  px-2 py-2   rounded-sm'>
+          <div className='  bg-main-color max-w-full md:max-w-[500px]   h-fit m-4  px-2 py-2   rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Visibility</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 6,4 */}
@@ -104,7 +104,7 @@ const MainPage = () => {
             </h1>
           </div>
 
-          <div className='  bg-main-color max-w-[500px] h-fit m-4    py-2   rounded-sm'>
+          <div className='  bg-main-color max-w-full md:max-w-[500px] h-fit m-4    py-2   rounded-sm'>
             <p className='text-center text-[18px] font-medium'>Air Pressure</p>
             <h1 className='text-[64px]  flex justify-center items-center'>
               {/* 998 */}

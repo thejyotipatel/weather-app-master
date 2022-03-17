@@ -5,10 +5,9 @@ import { useAppContext } from './components/context'
 function App() {
   const { loading } = useAppContext()
   return (
-    <div className=' text-gray-100       bg-main-color-2   mx-auto  w-full h-full '>
+    <div className='app text-gray-100 mx-auto   '>
       <div className=' flex flex-col md:flex-row    justify-between'>
         <Sidebar />
-
         {loading ? <Loading /> : <MainPage />}
       </div>
     </div>

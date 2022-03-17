@@ -2,13 +2,9 @@
 
 <h1 align="center">Weather app master</h1>
 
-<div align="center">
-  <h3>
-  <a href="https://thejyotipatel.github.io/weather-app-master/">  
-      Demo 
-    </a> 
-  </h3>
-</div>
+ 
+ ###  [Demo](https://thejyotipatel.github.io/weather-app-master/) 
+   
 
 <!-- TABLE OF CONTENTS -->
 
@@ -17,22 +13,29 @@
 - [Overview](#overview)
   - [Built With](#built-with)
 - [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+- [Contact](#contact) 
 
 <!-- OVERVIEW -->
 
-## Overview
+## Overview  
 
-<!--
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+ while making this app I learn how to work with API and how to access data from other websites that are normally forbidden by the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) of web browsers
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+Following things you can do on this web app:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :) -->
+- You can see your current location weather by default
+- You can search for the weather by city name
+- You can see the weather of today and the next 5 days
+- You can see the date and location of the weather
+- you can see according to the image for each type of weather and see the min and max degree each day
+- you can see wind status and wind direction
+- You can see humidity percentage and also you can see a visibility indicator
+- You can see the air pressure number
+- You can request your current location weather 
+
+
+![Weather-App-Master](https://user-images.githubusercontent.com/66724598/158875083-018db3eb-9392-468e-95d5-722ead31c5c8.png)
+ 
 
 ### Built With
 
@@ -40,6 +43,9 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 
 - [React](https://reactjs.org/)
 - [Tailwind](https://tailwindcss.com/)
+- [Metaweather weather API](https://www.metaweather.com/api/)
+- [Google material icons](https://google.github.io/material-design-icons/)
+- [https://github.com/Rob--W/cors-anywhere](https://github.com/Rob--W/cors-anywhere)
 
 ## How To Use
 
@@ -57,18 +63,7 @@ $ npm install
 # Run the app
 $ npm start
 ```
-
-## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-<!--
-- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked) -->
-
+ 
 ## Contact
-
-<!--
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username}) -->
+ 
+- Twitter [@thejyotipatel](https://{twitter.com/thejyotipatel}) 

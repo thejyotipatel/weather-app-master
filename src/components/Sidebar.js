@@ -8,13 +8,13 @@ const Sidebar = () => {
     <>
       <div
         // 2xl:block hidden
-        className={`  md:max-w-[350px]        bg-main-color max-w-full `}
+        className={`  md:max-w-[350px] bg-main-color max-w-full `}
       >
         <div className='m-2  mt-4 flex justify-between items-center  '>
           <SearchForm />
 
           <button
-            className=' bg-main-color-2 outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center  '
+            className=' bg-main-color-2 outline-none grid  w-[40px] h-[40px] rounded-[50%] place-content-center mr-2 -mt-[60px]'
             onClick={getCurrentLocation}
           >
             <span className='material-icons text-gray-100 text-[30px] '>
