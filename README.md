@@ -2,9 +2,7 @@
 
 <h1 align="center">Weather app master</h1>
 
- 
- ###  [Demo](https://thejyotipatel.github.io/weather-app-master/) 
-   
+### [Demo](https://thejyotipatel.github.io/weather-app-master/)
 
 <!-- TABLE OF CONTENTS -->
 
@@ -13,13 +11,13 @@
 - [Overview](#overview)
   - [Built With](#built-with)
 - [How to use](#how-to-use)
-- [Contact](#contact) 
+- [Contact](#contact)
 
 <!-- OVERVIEW -->
 
-## Overview  
+## Overview
 
- while making this app I learn how to work with API and how to access data from other websites that are normally forbidden by the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) of web browsers
+while making this app I learn how to work with API and how to access data from other websites that are normally forbidden by the [same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) of web browsers
 
 Following things you can do on this web app:
 
@@ -31,11 +29,9 @@ Following things you can do on this web app:
 - you can see wind status and wind direction
 - You can see humidity percentage and also you can see a visibility indicator
 - You can see the air pressure number
-- You can request your current location weather 
-
+- You can request your current location weather
 
 ![Weather-App-Master](https://user-images.githubusercontent.com/66724598/158875083-018db3eb-9392-468e-95d5-722ead31c5c8.png)
- 
 
 ### Built With
 
@@ -46,6 +42,16 @@ Following things you can do on this web app:
 - [Metaweather weather API](https://www.metaweather.com/api/)
 - [Google material icons](https://google.github.io/material-design-icons/)
 - [https://github.com/Rob--W/cors-anywhere](https://github.com/Rob--W/cors-anywhere)
+
+## Color Reference
+
+| Color        | Hex                                                              |
+| ------------ | ---------------------------------------------------------------- |
+| Main Color 1 | ![#00324b](https://via.placeholder.com/10/00324b?text=+) #00324b |
+| Main Color 2 | ![#b1852c](https://via.placeholder.com/10/b1852c?text=+) #b1852c |
+| Text Color   | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) #ffffff |
+
+|
 
 ## How To Use
 
@@ -63,7 +69,7 @@ $ npm install
 # Run the app
 $ npm start
 ```
- 
+
 ## Contact
- 
-- Twitter [@thejyotipatel](https://{twitter.com/thejyotipatel}) 
+
+- Twitter [@thejyotipatel](https://{twitter.com/thejyotipatel})
